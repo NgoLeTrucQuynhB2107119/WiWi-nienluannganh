@@ -6,17 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoaiThuCung extends Model
 {
-    protected $table = 'LOAI_THU_CUNG';
+    protected $table = 'loai_thu_cungs';
     protected $primaryKey = 'LTC_MA';
     public $timestamps = true;
 
     protected $fillable = [
-        'LTC_TEN',
-        'LTC_MOTA',
+        'LTC_TEN', 'LTC_MOTA'
     ];
 
-    // Quan hệ với Giống Thú Cưng
-    public function giongThuCung()
+    public function giongThuCungs()
     {
         return $this->hasMany(GiongThuCung::class, 'LTC_MA', 'LTC_MA');
     }

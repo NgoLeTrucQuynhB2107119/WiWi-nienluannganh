@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <a href="{{ route('Contact') }}" class="nav-item nav-link">Liên Hệ</a>
-                <a href="{{ asset('/login') }}" class="nav-item nav-link">Đăng nhập</a>
+                <a href="{{ route('login') }}" class="nav-item nav-link">Đăng nhập</a>
             </div>
         </div>
     </nav>

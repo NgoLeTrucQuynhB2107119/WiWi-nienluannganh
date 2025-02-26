@@ -137,7 +137,7 @@
             <button type="submit" class="login-btn">Đăng nhập</button>
 
         </form>
-        <form action="{{ route('home.html') }}" method="GET">
+        <form action="{{ route('Home') }}" method="GET">
 
             <button type="submit" class="return-btn">Thoát</button>
         </form>

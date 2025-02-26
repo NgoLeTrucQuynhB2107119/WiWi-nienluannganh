@@ -36,9 +36,9 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+    'quan_tri_vien' => [
+        'driver' => 'session',
+        'provider' => 'quan_tri_viens',
         ],
     ],
 
@@ -60,11 +60,10 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
-
+    'quan_tri_viens' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\QuanTriVien::class,
+    ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
