@@ -82,10 +82,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ route('Home') }}" class="nav-item nav-link active">Trang chủ</a>
-                <a href="about.html" class="nav-item nav-link">Thông tin</a>
-                <a href="{{ route('Service') }}" class="nav-item nav-link">Dịch vụ</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link active">Trang chủ</a>
+                <a href="{{ route('info') }}" class="nav-item nav-link">Thông tin</a>
                 <div class="nav-item dropdown">
+                    <a href="{{ route('service') }}" class="nav-item nav-link">Dịch vụ</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a href="feature" class="dropdown-item">Chăm sóc sức khỏe</a>
+                        <a href="team" class="dropdown-item">Chăm sóc thẩm mỹ</a>
+                    </div>
+                </div>
+                {{-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="feature.html" class="dropdown-item">Feature</a>
@@ -94,8 +100,8 @@
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
-                </div>
-                <a href="{{ route('Contact') }}" class="nav-item nav-link">Liên Hệ</a>
+                </div> --}}
+                <a href="{{ route('contact') }}" class="nav-item nav-link">Liên Hệ</a>
                 <a href="{{ route('login') }}" class="nav-item nav-link">Đăng nhập</a>
             </div>
         </div>

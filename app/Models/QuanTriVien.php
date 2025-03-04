@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
-class QuanTriVien extends Model
+
+class QuanTriVien extends Authenticatable
 {
     protected $table = 'quan_tri_viens';
     protected $primaryKey = 'QTV_MA';
@@ -12,12 +12,18 @@ class QuanTriVien extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'QTV_MA', 'QTV_EMAIL', 'QTV_MATKHAU', 'QTV_HOTEN'
+        'QTV_MA', 'QTV_EMAIL', 'QTV_MATKHAU', 'QTV_HOTEN', 'remember_token'
     ];
-    public function setQTV_MATKHAUAttribute($value)
+
+    protected $hidden = [
+        'QTV_MATKHAU', 'remember_token',
+    ];
+
+    public function getAuthIdentifierName()
     {
-        $this->attributes['QTV_MATKHAU'] = Hash::make($value);
+        return 'QTV_EMAIL';
     }
+
     public function getAuthPassword()
     {
         return $this->QTV_MATKHAU;

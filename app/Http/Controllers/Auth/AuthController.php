@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -15,19 +14,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
         $credentials = [
             'QTV_EMAIL' => $request->email,
-            'QTV_MATKHAU' => $request->password,
+            'password' => $request->password,
         ];
 
-        if (Auth::guard('web')->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('Home')->with('success', 'Đăng nhập thành công!');
+            return redirect()->route('admin_home')->with('success', 'Đăng nhập thành công!');
         }
 
         return back()->withInput()->withErrors(['login_error' => 'Email hoặc mật khẩu không đúng.']);

@@ -15,4 +15,10 @@ class UserController extends Controller
     public function open_contact(){
         return view('user.contact');
     }
+    public function open_info(){
+        return view('user.info');
+    }
+    public function open_adminhome(){
+        return view('admin.index');
+    }
 }

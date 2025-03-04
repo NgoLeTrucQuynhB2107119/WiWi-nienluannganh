@@ -36,7 +36,7 @@ return [
     */
 
     'guards' => [
-    'quan_tri_vien' => [
+    'web' => [
         'driver' => 'session',
         'provider' => 'quan_tri_viens',
         ],
