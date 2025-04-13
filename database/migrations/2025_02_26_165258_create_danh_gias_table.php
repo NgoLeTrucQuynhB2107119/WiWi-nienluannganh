@@ -9,7 +9,7 @@ class CreateDanhGiasTable extends Migration
     public function up()
     {
         Schema::create('danh_gias', function (Blueprint $table) {
-            $table->increments('DG_MA');
+            $table->id('DG_MA');
             $table->integer('DG_DIEMSO');
             $table->text('DG_BINHLUAN')->nullable();
             $table->integer('KH_MA')->unsigned();

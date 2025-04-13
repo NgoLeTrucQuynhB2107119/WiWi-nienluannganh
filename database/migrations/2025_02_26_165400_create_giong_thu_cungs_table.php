@@ -9,7 +9,7 @@ class CreateGiongThuCungsTable extends Migration
     public function up()
     {
         Schema::create('giong_thu_cungs', function (Blueprint $table) {
-            $table->increments('GTC_MA');
+            $table->id('GTC_MA');
             $table->string('GTC_TEN', 100);
             $table->text('GTC_MOTA')->nullable();
             $table->integer('LTC_MA')->unsigned();

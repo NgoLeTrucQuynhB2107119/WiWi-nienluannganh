@@ -9,7 +9,7 @@ class CreateLoaiThuCungsTable extends Migration
     public function up()
     {
         Schema::create('loai_thu_cungs', function (Blueprint $table) {
-            $table->increments('LTC_MA');
+            $table->id('LTC_MA');
             $table->string('LTC_TEN', 100);
             $table->text('LTC_MOTA')->nullable();
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));

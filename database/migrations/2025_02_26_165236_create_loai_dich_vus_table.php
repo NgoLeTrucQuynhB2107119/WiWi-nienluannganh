@@ -9,7 +9,7 @@ class CreateLoaiDichVusTable extends Migration
     public function up()
     {
         Schema::create('loai_dich_vus', function (Blueprint $table) {
-            $table->increments('LDV_MA');
+            $table->id('LDV_MA');
             $table->string('LDV_TEN', 100);
             $table->text('LDV_MOTA')->nullable();
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));

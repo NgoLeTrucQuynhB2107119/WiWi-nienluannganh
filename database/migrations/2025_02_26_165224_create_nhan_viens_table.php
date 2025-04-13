@@ -9,7 +9,7 @@ class CreateNhanViensTable extends Migration
     public function up()
     {
         Schema::create('nhan_viens', function (Blueprint $table) {
-            $table->increments('NV_MA');
+            $table->id('NV_MA');
             $table->string('NV_EMAIL', 255);
             $table->string('NV_HOTEN', 100)->nullable();
             $table->enum('NV_GIOITINH', ['Nam', 'Nữ', 'Không muốn cung cấp'])->nullable();

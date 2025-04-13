@@ -9,7 +9,7 @@ class CreateDichVusTable extends Migration
     public function up()
     {
         Schema::create('dich_vus', function (Blueprint $table) {
-            $table->increments('DV_MA');
+            $table->id('DV_MA');
             $table->string('DV_TEN', 100);
             $table->text('DV_MOTA')->nullable();
             $table->decimal('DV_GIA', 10, 2);

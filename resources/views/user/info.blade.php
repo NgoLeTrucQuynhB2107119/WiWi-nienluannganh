@@ -4,7 +4,7 @@
 @endsection
 @section('user_content')
 
-    <!-- About Start -->
+    {{-- <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
@@ -173,6 +173,6 @@
             </div>
         </div>
     </div>
-    <!-- Team End -->
+    <!-- Team End --> --}}
 
 @endsection

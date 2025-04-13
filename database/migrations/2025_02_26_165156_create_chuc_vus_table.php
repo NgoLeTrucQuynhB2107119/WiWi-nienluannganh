@@ -9,7 +9,7 @@ class CreateChucVusTable extends Migration
     public function up()
     {
         Schema::create('chuc_vus', function (Blueprint $table) {
-            $table->increments('CV_MA');
+            $table->id('CV_MA');
             $table->string('CV_TEN', 100);
             $table->text('CV_MOTA')->nullable();
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));

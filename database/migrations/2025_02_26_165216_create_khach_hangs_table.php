@@ -9,7 +9,7 @@ class CreateKhachHangsTable extends Migration
     public function up()
     {
         Schema::create('khach_hangs', function (Blueprint $table) {
-            $table->increments('KH_MA');
+            $table->id('KH_MA');
             $table->string('KH_EMAIL', 255);
             $table->string('KH_HOTEN', 100)->nullable();
             $table->enum('KH_GIOITINH', ['Nam', 'Nữ', 'Không muốn cung cấp'])->nullable();

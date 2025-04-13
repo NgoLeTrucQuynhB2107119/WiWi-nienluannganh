@@ -9,7 +9,7 @@ class CreateTrangThaiLichHensTable extends Migration
     public function up()
     {
         Schema::create('trang_thai_lich_hens', function (Blueprint $table) {
-            $table->increments('TTLH_MA');
+            $table->id('TTLH_MA');
             $table->string('TTLH_TEN', 100);
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('UPDATED_AT')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

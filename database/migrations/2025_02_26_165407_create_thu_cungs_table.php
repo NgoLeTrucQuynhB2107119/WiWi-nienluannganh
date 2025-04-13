@@ -10,7 +10,7 @@ class CreateThuCungsTable extends Migration
     public function up()
     {
         Schema::create('thu_cungs', function (Blueprint $table) {
-            $table->increments('TC_MA');
+            $table->id('TC_MA');
             $table->string('TC_TEN', 100);
             $table->date('TC_NGAYSINH')->nullable();
             $table->float('TC_CANNANG')->nullable();

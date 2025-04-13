@@ -33,4 +33,8 @@ class LichHen extends Model
     {
         return $this->belongsTo(DichVu::class, 'DV_MA', 'DV_MA');
     }
+    public function hinhThuc()
+    {
+        return $this->belongsTo(HinhThuc::class, 'HT_MA');
+    }
 }
