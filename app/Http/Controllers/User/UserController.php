@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
+    //Lỡ gòi thì lưu dô luon, ĐỪNG ĐỔI HAY XÓA NHE QUỲNH ƠIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     public function open_home(){
         return view('user.index');
     }
@@ -21,4 +22,9 @@ class UserController extends Controller
     public function open_adminhome(){
         return view('admin.index');
     }
+    //XỬ LÝ QUẢ LÝ TÀI KHOẢN Ở ĐÂY
+    public function index(){
+
+    }
+
 }

@@ -81,8 +81,8 @@
                 <div class="nav-item dropdown">
                     <a href="{{ route('service') }}" class="nav-item nav-link">Dịch vụ</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="feature" class="dropdown-item">Chăm sóc sức khỏe</a>
-                        <a href="team" class="dropdown-item">Chăm sóc thẩm mỹ</a>
+                        <a href="{{ route('user.servicehealth.index') }}" class="dropdown-item">Chăm sóc sức khỏe</a>
+                        <a href="{{ route('user.servicebeauty.index') }}" class="dropdown-item">Chăm sóc thẩm mỹ</a>
                     </div>
                 </div>
                 {{-- <div class="nav-item dropdown">

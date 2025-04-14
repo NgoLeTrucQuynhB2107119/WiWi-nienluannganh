@@ -369,11 +369,11 @@
                                 </span></a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="icon-material.html" class="sidebar-link"><i
+                                    <a href="{{ route('admin.serviceB.index') }}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon"></i><span class="hide-menu"> Chăm sóc y tế  </span></a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="icon-fontawesome.html" class="sidebar-link"><i
+                                    <a href="{{ route('admin.serviceA.index') }}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Chăm sóc thẩm mỹ</span></a>
                                 </li>
                             </ul>
