@@ -24,8 +24,4 @@ class KhachHang extends Model
         return $this->hasMany(DanhGia::class, 'KH_MA', 'KH_MA');
     }
 
-    public function thuCungs()
-    {
-        return $this->hasMany(ThuCung::class, 'KH_MA', 'KH_MA');
-    }
 }

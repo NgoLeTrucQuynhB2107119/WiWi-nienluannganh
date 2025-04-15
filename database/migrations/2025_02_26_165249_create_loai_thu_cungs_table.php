@@ -4,16 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
-class CreateGiongThuCungsTable extends Migration
+class CreateLoaiThuCungsTable extends Migration
 {
     public function up()
     {
-        Schema::create('giong_thu_cungs', function (Blueprint $table) {
-            $table->id('GTC_MA');
-            $table->string('GTC_TEN', 100);
-            $table->text('GTC_MOTA')->nullable();
-            $table->integer('LTC_MA')->unsigned();
-            $table->foreign('LTC_MA')->references('LTC_MA')->on('loai_thu_cungs')->onDelete('cascade');
+        Schema::create('loai_thu_cungs', function (Blueprint $table) {
+            $table->id('LTC_MA');
+            $table->string('LTC_TEN', 100);
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('UPDATED_AT')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -21,6 +18,6 @@ class CreateGiongThuCungsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('giong_thu_cungs');
+        Schema::dropIfExists('loai_thu_cungs');
     }
 }

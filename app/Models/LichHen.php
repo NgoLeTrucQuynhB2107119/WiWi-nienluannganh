@@ -11,7 +11,7 @@ class LichHen extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'LH_NGAYGIO', 'TTLH_MA', 'KH_MA', 'NV_MA', 'DV_MA'
+        'LH_NGAYGIO', 'TTLH_MA', 'KH_MA', 'NV_MA', 'DV_MA', 'HT_MA', 'LTC_MA'
     ];
 
     public function trangThaiLichHen()
@@ -35,6 +35,9 @@ class LichHen extends Model
     }
     public function hinhThuc()
     {
-        return $this->belongsTo(HinhThuc::class, 'HT_MA');
+        return $this->belongsTo(HinhThuc::class, 'HT_MA','HT_MA');
+    }
+    public function loaiThuCung(){
+        return $this->belongsTo(LoaiThuCung::class,'LTC_MA','LTC_MA');
     }
 }

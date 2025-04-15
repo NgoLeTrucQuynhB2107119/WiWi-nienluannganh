@@ -11,6 +11,7 @@ class CreateKhachHangsTable extends Migration
         Schema::create('khach_hangs', function (Blueprint $table) {
             $table->id('KH_MA');
             $table->string('KH_EMAIL', 255);
+            $table->string('KH_MATKHAU', 255);
             $table->string('KH_HOTEN', 100)->nullable();
             $table->enum('KH_GIOITINH', ['Nam', 'Nữ', 'Không muốn cung cấp'])->nullable();
             $table->string('KH_SDT', 20)->nullable();

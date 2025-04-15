@@ -14,7 +14,7 @@ class CreateNhanViensTable extends Migration
             $table->string('NV_HOTEN', 100)->nullable();
             $table->enum('NV_GIOITINH', ['Nam', 'Nữ', 'Không muốn cung cấp'])->nullable();
             $table->string('NV_SDT', 20)->nullable();
-            $table->integer('CV_MA')->unsigned();
+            $table->unsignedBigInteger('CV_MA');
             $table->foreign('CV_MA')->references('CV_MA')->on('chuc_vus')->onDelete('cascade');
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('UPDATED_AT')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

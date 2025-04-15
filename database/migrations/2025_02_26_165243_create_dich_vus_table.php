@@ -14,7 +14,7 @@ class CreateDichVusTable extends Migration
             $table->text('DV_MOTA')->nullable();
             $table->decimal('DV_GIA', 10, 2);
             $table->time('DV_THOIGIAN_THUCHIEN')->nullable();
-            $table->integer('LDV_MA')->unsigned();
+            $table->unsignedBigInteger('LDV_MA');
             $table->foreign('LDV_MA')->references('LDV_MA')->on('loai_dich_vus')->onDelete('cascade');
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('UPDATED_AT')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

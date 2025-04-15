@@ -11,11 +11,6 @@ class LoaiThuCung extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'LTC_TEN', 'LTC_MOTA'
+        'LTC_TEN'
     ];
-
-    public function giongThuCungs()
-    {
-        return $this->hasMany(GiongThuCung::class, 'LTC_MA', 'LTC_MA');
-    }
 }

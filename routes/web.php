@@ -5,6 +5,10 @@ use App\Http\Controllers\Admin\ServiceTypeController;
 use App\Http\Controllers\Admin\FormatController;
 use App\Http\Controllers\Admin\Service\ServiceBeautyController;
 use App\Http\Controllers\Admin\Service\ServiceHealthController;
+use App\Http\Controllers\Admin\PetController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\PositionController;
+use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\Service\Service_BeautyController;
 use App\Http\Controllers\User\Service\Service_HealthController;
@@ -62,4 +66,28 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_ServiceB/{id}/edit', [ServiceHealthController::class, 'edit'])->name('admin.serviceB.edit');
     Route::put('/Admin_ServiceB/{id}', [ServiceHealthController::class, 'update'])->name('admin.serviceB.update');
     Route::delete('/Admin_ServiceB/{id}', [ServiceHealthController::class, 'destroy'])->name('admin.serviceB.destroy');
-    //User_Customer
+    //Customer
+    Route::get('/Admin_Customer',[CustomerController::class, 'index'])->name('admin.customer.index');
+    //Pet
+    Route::get('/Admin_Pet',[PetController::class, 'index'])->name('admin.pet.index');
+    Route::get('Admin_Pet/Create',[PetController::class, 'create'])->name('admin.pet.create');
+    Route::post('/Admin_Pet/Store',[PetController::class, 'store'])->name('admin.pet.store');
+    Route::get('/Admin_Pet/{id}/edit',[PetController::class,'edit'])->name('admin.pet.edit');
+    Route::put('Admin_Pet/{id}',[PetController::class,'update'])->name('admin.pet.update');
+    Route::delete('/Admin_Pet/{id}',[PetController::class, 'destroy'])->name('admin.pet.destroy');
+
+    //Position
+    Route::get('/Admin_Position',[PositionController::class, 'index'])->name('admin.position.index');
+    Route::get('Admin_Position/Create',[PositionController::class, 'create'])->name('admin.position.create');
+    Route::post('/Admin_Position/Store',[PositionController::class, 'store'])->name('admin.position.store');
+    Route::get('/Admin_Position/{id}/edit',[PositionController::class,'edit'])->name('admin.position.edit');
+    Route::put('Admin_Position/{id}',[PositionController::class,'update'])->name('admin.position.update');
+    Route::delete('/Admin_Position/{id}',[PositionController::class, 'destroy'])->name('admin.position.destroy');
+
+    //Employee
+    Route::get('/Admin_Employee',[EmployeeController::class, 'index'])->name('admin.employee.index');
+    Route::get('Admin_Employee/Create',[EmployeeController::class, 'create'])->name('admin.employee.create');
+    Route::post('/Admin_Employee/Store',[EmployeeController::class, 'store'])->name('admin.employee.store');
+    Route::get('/Admin_Employee/{id}/edit',[EmployeeController::class,'edit'])->name('admin.employee.edit');
+    Route::put('Admin_Employee/{id}',[EmployeeController::class,'update'])->name('admin.employee.update');
+    Route::delete('/Admin_Employee/{id}',[EmployeeController::class, 'destroy'])->name('admin.employee.destroy');

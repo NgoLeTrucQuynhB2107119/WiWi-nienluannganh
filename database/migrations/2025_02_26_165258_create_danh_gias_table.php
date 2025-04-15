@@ -12,8 +12,8 @@ class CreateDanhGiasTable extends Migration
             $table->id('DG_MA');
             $table->integer('DG_DIEMSO');
             $table->text('DG_BINHLUAN')->nullable();
-            $table->integer('KH_MA')->unsigned();
-            $table->integer('DV_MA')->unsigned();
+            $table->unsignedBigInteger('KH_MA');
+            $table->unsignedBigInteger('DV_MA');
             $table->foreign('KH_MA')->references('KH_MA')->on('khach_hangs')->onDelete('cascade');
             $table->foreign('DV_MA')->references('DV_MA')->on('dich_vus')->onDelete('cascade');
             $table->timestamp('CREATED_AT')->default(DB::raw('CURRENT_TIMESTAMP'));

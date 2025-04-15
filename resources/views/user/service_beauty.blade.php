@@ -8,7 +8,7 @@
     <div class="row">
         @foreach ($dichvu as $dv)
             <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
+                <div class="card service-card h-100 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title text-primary">{{ $dv->DV_TEN }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">
@@ -17,6 +17,10 @@
                         <p class="card-text">{{ $dv->DV_MOTA }}</p>
                         <p class="card-text"><strong>Thời gian:</strong> {{ $dv->DV_THOIGIAN_THUCHIEN }}</p>
                         <p class="card-text text-success"><strong>Giá:</strong> {{ number_format($dv->DV_GIA, 0, ',', '.') }} đ</p>
+
+                        <a href="#" class="btn btn-primary btn-booking">
+                            Đặt lịch hẹn
+                        </a>
                     </div>
                 </div>
             </div>
@@ -28,36 +32,26 @@
     .service-card {
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s ease;
+        transition: all 0.4s ease;
     }
 
     .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        background-color: rgba(167, 167, 167, 0.7);
+        backdrop-filter: blur(3px);
     }
 
     .btn-booking {
         position: absolute;
-        bottom: -50px;
+        bottom: 20px;
         left: 50%;
-        transform: translateX(-50%);
-        transition: all 0.3s ease;
+        transform: translateX(-50%) translateY(20px);
         opacity: 0;
-        animation: none;
+        transition: all 0.4s ease;
     }
 
     .service-card:hover .btn-booking {
-        bottom: 20px;
+        transform: translateX(-50%) translateY(0);
         opacity: 1;
-        animation: shake 0.5s ease-in-out infinite;
-    }
-
-    @keyframes shake {
-        0% { transform: translateX(-50%) translateY(0); }
-        25% { transform: translateX(-50%) translateY(-2px); }
-        50% { transform: translateX(-50%) translateY(2px); }
-        75% { transform: translateX(-50%) translateY(-2px); }
-        100% { transform: translateX(-50%) translateY(0); }
     }
 </style>
 @endsection

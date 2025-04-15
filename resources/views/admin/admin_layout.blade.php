@@ -322,11 +322,6 @@
                             </ul>
                         </li>
                         {{-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html"
-                                aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
-                                    class="hide-menu">Lịch đặt khám</span></a>
-                        </li>
-                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html"
                                 aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
                                     class="hide-menu">Widgets</span></a>
@@ -349,20 +344,24 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.customer.index') }}"
                                 aria-expanded="false"><i class="mdi mdi-border-inside"></i><span
                                     class="hide-menu">Quản lí thông tin khách hàng</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.pet.index') }}"
                                 aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Quản lý thông tin thú cưng</span></a>
                         </li>
-
-                        {{-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html"
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.position.index') }}"
                                 aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span
-                                    class="hide-menu">Buttons</span></a>
-                        </li> --}}
+                                    class="hide-menu">Quản lý chức vụ</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('admin.employee.index') }}"
+                                aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
+                                    class="hide-menu">Quản lý nhân viên</span></a>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Quản lý dịch vụ
