@@ -2,17 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class KhachHang extends Model
+class KhachHang extends Authenticatable
 {
     protected $table = 'khach_hangs';
     protected $primaryKey = 'KH_MA';
     public $timestamps = true;
 
     protected $fillable = [
-        'KH_EMAIL', 'KH_HOTEN', 'KH_GIOITINH', 'KH_SDT', 'KH_DIACHI'
+        'KH_EMAIL','KH_MATKHAU', 'KH_HOTEN', 'KH_GIOITINH', 'KH_SDT', 'KH_DIACHI'
     ];
+
+    protected $hidden = [
+        'KH_MATKHAU'
+    ];
+    public function getAuthIdentifierName()
+    {
+        return 'KH_EMAIL';
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->KH_MATKHAU;
+    }
 
     public function lichHens()
     {

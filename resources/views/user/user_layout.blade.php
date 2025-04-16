@@ -77,7 +77,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('home') }}" class="nav-item nav-link active">Trang chủ</a>
-                <a href="{{ route('info') }}" class="nav-item nav-link">Thông tin</a>
+                {{-- <a href="{{ route('info') }}" class="nav-item nav-link">Thông tin</a> --}}
                 <div class="nav-item dropdown">
                     <a href="{{ route('service') }}" class="nav-item nav-link">Dịch vụ</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -96,7 +96,25 @@
                     </div>
                 </div> --}}
                 <a href="{{ route('contact') }}" class="nav-item nav-link">Liên Hệ</a>
-                <a href="{{ route('login') }}" class="nav-item nav-link">Đăng nhập</a>
+                {{-- Menu thông tin của người dùng đây nè Quìn --}}
+                @auth('web')
+                    <!-- Đã đăng nhập -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            {{Auth::user()->KH_HOTEN }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">Thông tin cá nhân</a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="dropdown-item" type="submit">Đăng xuất</button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <!-- Chưa đăng nhập -->
+                    <a href="{{ route('login') }}" class="nav-item nav-link">Đăng nhập</a>
+                @endauth
             </div>
         </div>
     </nav>
@@ -129,7 +147,7 @@
                     </div>
                 </div> --}}
             </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+            {{-- <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <div class="owl-carousel header-carousel">
                     <div class="owl-carousel-item position-relative">
                         <img class="img-fluid" src="img/carousel-1.jpg" alt="">
@@ -150,7 +168,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- Header End -->
@@ -174,7 +192,6 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Truy cập nhanh</h5>
-                    <a class="btn btn-link" href="">Thông tin</a>
                     <a class="btn btn-link" href="">liên hệ</a>
                     <a class="btn btn-link" href="">Dịch vụ</a>
                     <a class="btn btn-link" href="">Đặt khám</a>
@@ -184,7 +201,7 @@
                     <h5 class="text-light mb-4">peek a boo</h5>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Đăng ký</button>
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" href="{{ route('register') }}">Đăng ký</button>
                     </div>
                 </div>
             </div>

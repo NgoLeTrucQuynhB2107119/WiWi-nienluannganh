@@ -38,9 +38,14 @@ return [
     'guards' => [
     'web' => [
         'driver' => 'session',
-        'provider' => 'quan_tri_viens',
-        ],
+        'provider' => 'users',
     ],
+
+    'admin' => [
+        'driver' => 'session',
+        'provider' => 'admins',
+    ],
+],
 
     /*
     |--------------------------------------------------------------------------
@@ -60,16 +65,16 @@ return [
     */
 
     'providers' => [
-    'quan_tri_viens' => [
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\KhachHang::class,
+    ],
+
+    'admins' => [
         'driver' => 'eloquent',
         'model' => App\Models\QuanTriVien::class,
     ],
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-    ],
-
+],
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

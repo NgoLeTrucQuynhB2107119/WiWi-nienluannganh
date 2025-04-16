@@ -19,21 +19,24 @@ use App\Http\Controllers\User\Service\Service_HealthController;
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register',[AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register',[AuthController::class, 'register']);
+
+///////////////////////////////////////////////////////////////////////////////
 
 // User routes
-//Route::middleware('auth')->group(function () {
     Route::get('/', [UserController::class, 'open_home'])->name('home');
     Route::get('/service', [UserController::class, 'open_service'])->name('service');
     Route::get('/contact', [UserController::class, 'open_contact'])->name('contact');
-    Route::get('/information', [UserController::class, 'open_info'])->name('info');
-//});
+    // Route::get('/information', [UserController::class, 'open_info'])->name('info');
+
     //Service_Beauty
     Route::get('/User_ServiceBeauty',[Service_BeautyController::class, 'index'])->name('user.servicebeauty.index');
 
     //Service_Health
     Route::get('/User_ServiceHealth',[Service_HealthController::class, 'index'])->name('user.servicehealth.index');
 
-
+/////////////////////////////////////////////////////////////////////
 
 //Admin routes
 Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_home');
