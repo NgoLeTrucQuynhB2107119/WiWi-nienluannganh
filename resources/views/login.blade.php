@@ -132,16 +132,11 @@
                 {{ $errors->first('login_error') }}
             </div>
             @endif
-
             <button type="submit" class="login-btn">Đăng nhập</button>
-
         </form>
         <form action="{{ route('home') }}" method="GET">
-
             <button type="submit" class="return-btn">Thoát</button>
         </form>
-
-    </div>
     </div>
 </body>
 

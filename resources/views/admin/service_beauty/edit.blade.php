@@ -22,10 +22,6 @@
             <input type="number" class="form-control" id="DV_GIA" name="DV_GIA" value="{{ $dichvu->DV_GIA }}" required>
         </div>
         <div class="form-group">
-            <label for="DV_THOIGIAN_THUCHIEN">Thời Gian Thực Hiện</label>
-            <input type="text" class="form-control" id="DV_THOIGIAN_THUCHIEN" name="DV_THOIGIAN_THUCHIEN" value="{{ $dichvu->DV_THOIGIAN_THUCHIEN }}" required>
-        </div>
-        <div class="form-group">
             <label for="LDV_MA">Loại Dịch Vụ</label>
             <select class="form-control" id="LDV_MA" name="LDV_MA" required>
                 @foreach ($loai as $item)

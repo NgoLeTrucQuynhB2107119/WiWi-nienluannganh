@@ -23,7 +23,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('userlayout/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('userlayout/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('userlayout/ib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}l" rel="stylesheet" />
+    <link href="{{ asset('userlayout/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('userlayout/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -99,9 +99,10 @@
                 {{-- Menu thông tin của người dùng đây nè Quìn --}}
                 @auth('web')
                     <!-- Đã đăng nhập -->
+                    {{-- dd(session()->all()); --}}
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            {{Auth::user()->KH_HOTEN }}
+                            {{ Auth::guard('web')->user()->KH_HOTEN }}
                         </a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">Thông tin cá nhân</a>
@@ -119,7 +120,9 @@
         </div>
     </nav>
     <!-- Navbar End -->
-
+<div class="container">
+    @include('user.modal.profile',['editMode' => false])
+</div>
 
     <!-- Header Start -->
     <div class="container-fluid header bg-primary p-0 mb-5">

@@ -21,10 +21,6 @@
             <input type="number" class="form-control" id="DV_GIA" name="DV_GIA" required>
         </div>
         <div class="form-group">
-            <label for="DV_THOIGIAN_THUCHIEN">Thời Gian Thực Hiện</label>
-            <input type="text" class="form-control" id="DV_THOIGIAN_THUCHIEN" name="DV_THOIGIAN_THUCHIEN" required>
-        </div>
-        <div class="form-group">
             <label for="LDV_MA">Loại Dịch Vụ</label>
             <select name="LDV_MA" class="form-control">
                 @foreach ($loai as $item)

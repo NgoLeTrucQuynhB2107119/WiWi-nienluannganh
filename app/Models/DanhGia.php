@@ -11,7 +11,7 @@ class DanhGia extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'DG_DIEMSO', 'DG_BINHLUAN', 'KH_MA', 'DV_MA'
+        'DG_DIEMSO', 'DG_BINHLUAN', 'KH_MA'
     ];
 
     public function khachHang()
@@ -19,8 +19,4 @@ class DanhGia extends Model
         return $this->belongsTo(KhachHang::class, 'KH_MA', 'KH_MA');
     }
 
-    public function dichVu()
-    {
-        return $this->belongsTo(DichVu::class, 'DV_MA', 'DV_MA');
-    }
 }

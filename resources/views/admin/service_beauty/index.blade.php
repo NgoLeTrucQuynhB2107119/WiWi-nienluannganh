@@ -20,7 +20,6 @@
                 <th>Mô Tả</th>
                 <th>Giá</th>
                 <th>Loại Dịch Vụ</th>
-                <th>Thời Gian Thực Hiện</th>
                 <th>Tùy Chỉnh</th>
             </tr>
         </thead>
@@ -32,7 +31,6 @@
                     <td>{{ $dv->DV_MOTA }}</td>
                     <td>{{ number_format($dv->DV_GIA, 0, ',', '.') }} đ</td>
                     <td>{{ $dv->LoaiDichVu->LDV_TEN }}</td>
-                    <td>{{ $dv->DV_THOIGIAN_THUCHIEN }}</td>
                     <td>
                         <a href="{{ route('admin.serviceA.edit', $dv->DV_MA) }}" class="btn btn-warning">Sửa</a>
                         <form action="{{ route('admin.serviceA.destroy', $dv->DV_MA) }}" method="POST" style="display: inline-block;">

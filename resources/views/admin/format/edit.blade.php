@@ -13,12 +13,6 @@
             <label for="HT_TEN" class="form-label">Tên Hình Thức</label>
             <input type="text" name="HT_TEN" class="form-control" value="{{ $hinhthuc->HT_TEN }}" required>
         </div>
-
-        <div class="mb-3">
-            <label for="HT_MOTA" class="form-label">Mô Tả</label>
-            <textarea name="HT_MOTA" class="form-control">{{ $hinhthuc->HT_MOTA }}</textarea>
-        </div>
-
         <button type="submit" class="btn btn-primary">Cập nhật</button>
         <a href="{{ route('admin.format.index') }}" class="btn btn-secondary">Hủy</a>
     </form>

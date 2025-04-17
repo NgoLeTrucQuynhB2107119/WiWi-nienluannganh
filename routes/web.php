@@ -9,16 +9,19 @@ use App\Http\Controllers\Admin\PetController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\PositionController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\BookingCheckController;
+use App\Http\Controllers\Admin\BookingFinalController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\Service\Service_BeautyController;
 use App\Http\Controllers\User\Service\Service_HealthController;
+use App\Http\Controllers\User\ProfileController;
 
 
 
 // Login routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register',[AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register',[AuthController::class, 'register']);
 
@@ -35,6 +38,11 @@ Route::post('/register',[AuthController::class, 'register']);
 
     //Service_Health
     Route::get('/User_ServiceHealth',[Service_HealthController::class, 'index'])->name('user.servicehealth.index');
+
+    //Profile
+    Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
+    Route::get('/profile/edit', [ProfileController::class, 'editProfile'])->name('editProfile');
+    Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
 
 /////////////////////////////////////////////////////////////////////
 
@@ -94,3 +102,12 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_Employee/{id}/edit',[EmployeeController::class,'edit'])->name('admin.employee.edit');
     Route::put('Admin_Employee/{id}',[EmployeeController::class,'update'])->name('admin.employee.update');
     Route::delete('/Admin_Employee/{id}',[EmployeeController::class, 'destroy'])->name('admin.employee.destroy');
+
+    //BookingCheck
+    Route::get('/Admin_BookingCheckB',[BookingCheckController::class, 'indexB'])->name('admin.bookingCheckB.index');
+    Route::get('/Admin_BookingCheckA',[BookingCheckController::class, 'indexA'])->name('admin.bookingCheckA.index');
+    Route::put('/admin/booking-check/{id}/update-status', [BookingCheckController::class, 'updateStatus'])->name('admin.updateBookingStatus');
+
+    //BookingFinal
+    Route::get('/Admin_BookingFinalB',[BookingFinalController::class, 'indexB'])->name('admin.bookingFinalB.index');
+    Route::get('/Admin_BookingFinalA',[BookingFinalController::class, 'indexA'])->name('admin.bookingFinalA.index');

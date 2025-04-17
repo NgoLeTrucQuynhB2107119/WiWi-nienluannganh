@@ -19,7 +19,7 @@ class KhachHang extends Authenticatable
     ];
     public function getAuthIdentifierName()
     {
-        return 'KH_EMAIL';
+        return 'KH_MA';
     }
 
     public function getAuthPassword()

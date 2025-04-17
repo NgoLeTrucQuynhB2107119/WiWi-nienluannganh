@@ -11,7 +11,7 @@ class DichVu extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'DV_TEN', 'DV_MOTA', 'DV_GIA', 'DV_THOIGIAN_THUCHIEN', 'LDV_MA'
+        'DV_TEN', 'DV_MOTA', 'DV_GIA', 'LDV_MA'
     ];
 
     public function loaiDichVu()
@@ -24,8 +24,4 @@ class DichVu extends Model
         return $this->hasMany(LichHen::class, 'DV_MA', 'DV_MA');
     }
 
-    public function danhGias()
-    {
-        return $this->hasMany(DanhGia::class, 'DV_MA', 'DV_MA');
-    }
 }

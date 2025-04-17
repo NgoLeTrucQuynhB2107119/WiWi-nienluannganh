@@ -12,12 +12,6 @@
             <label for="HT_TEN" class="form-label">Tên Hình Thức</label>
             <input type="text" name="HT_TEN" class="form-control" required>
         </div>
-
-        <div class="mb-3">
-            <label for="HT_MOTA" class="form-label">Mô Tả</label>
-            <textarea name="HT_MOTA" class="form-control"></textarea>
-        </div>
-
         <button type="submit" class="btn btn-success">Lưu</button>
         <a href="{{ route('admin.format.index') }}" class="btn btn-secondary">Quay lại</a>
     </form>

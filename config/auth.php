@@ -38,7 +38,7 @@ return [
     'guards' => [
     'web' => [
         'driver' => 'session',
-        'provider' => 'users',
+        'provider' => 'khachhangs',
     ],
 
     'admin' => [
@@ -65,7 +65,7 @@ return [
     */
 
     'providers' => [
-    'users' => [
+    'khachhangs' => [
         'driver' => 'eloquent',
         'model' => App\Models\KhachHang::class,
     ],

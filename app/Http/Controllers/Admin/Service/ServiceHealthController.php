@@ -28,14 +28,12 @@ class ServiceHealthController extends Controller
             'DV_TEN' => 'required',
             'DV_MOTA' => 'required',
             'DV_GIA' => 'required',
-            'DV_THOIGIAN_THUCHIEN' => 'required',
         ]);
 
         DichVu::create([
             'DV_TEN' => $request->DV_TEN,
             'DV_MOTA' => $request->DV_MOTA,
             'DV_GIA' => $request->DV_GIA,
-            'DV_THOIGIAN_THUCHIEN' => $request->DV_THOIGIAN_THUCHIEN,
             'LDV_MA' => 2,
         ]);
 
@@ -55,7 +53,6 @@ class ServiceHealthController extends Controller
             'DV_TEN' => 'required',
             'DV_MOTA' => 'required',
             'DV_GIA' => 'required',
-            'DV_THOIGIAN_THUCHIEN' => 'required',
         ]);
 
         $dichvu = DichVu::find($id);
@@ -63,7 +60,6 @@ class ServiceHealthController extends Controller
             'DV_TEN' => $request->DV_TEN,
             'DV_MOTA' => $request->DV_MOTA,
             'DV_GIA' => $request->DV_GIA,
-            'DV_THOIGIAN_THUCHIEN' => $request->DV_THOIGIAN_THUCHIEN,
             'LDV_MA' => $request->LDV_MA,
         ]);
 

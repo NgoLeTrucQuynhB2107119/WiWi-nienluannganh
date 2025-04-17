@@ -10,7 +10,8 @@ class CreateLichHensTable extends Migration
     {
         Schema::create('lich_hens', function (Blueprint $table) {
             $table->increments('LH_MA');
-            $table->dateTime('LH_NGAYGIO');
+            $table->date('LH_NGAYHEN');
+            $table->time('LH_GIOHEN');
             $table->unsignedBigInteger('TTLH_MA');
             $table->unsignedBigInteger('KH_MA');
             $table->unsignedBigInteger('NV_MA');
