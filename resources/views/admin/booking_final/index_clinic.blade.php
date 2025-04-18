@@ -73,7 +73,11 @@
                             <td>
                                 @foreach ($matching as $a)
                                     <div class="p-1 mb-1 rounded text-white" style="background-color: #6f42c1;">
-                                        <strong>{{ $a->dichVu->DV_TEN ?? 'N/A' }}</strong><br>
+                                        <strong>
+                                            @foreach($a->chiTietLichHen as $ct)
+                                                <div>{{ $ct->dichVu->DV_TEN ?? '' }}</div>
+                                            @endforeach
+                                            </strong><br>
                                         {{ $a->khachHang->KH_HOTEN ?? 'N/A' }}<br>
                                         {{ \Carbon\Carbon::parse($a->LH_GIOHEN)->format('H:i') }}<br>
                                         {{ $a->loaiThuCung->LTC_TEN ?? '' }}
