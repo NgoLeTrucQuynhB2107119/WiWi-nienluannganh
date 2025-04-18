@@ -38,6 +38,7 @@
                 <th>Nhân viên</th>
                 <th>Trạng thái</th>
                 <th>Cập nhật</th>
+                <th>Địa chỉ</th>
             </tr>
         </thead>
         <tbody>
@@ -49,7 +50,11 @@
                     <td>{{ $item->khachHang->KH_HOTEN ?? '---' }}</td>
                     <td>{{ \Carbon\Carbon::parse($item->LH_NGAYHEN)->format('d/m/Y') }}</td>
                     <td>{{ \Carbon\Carbon::parse($item->LH_GIOHEN)->format('H:i') }}</td>
-                    <td>{{ $item->dichVu->DV_TEN ?? '---' }}</td>
+                    <td>
+                        @foreach($item->chiTietLichHen as $ct)
+                            <div>{{ $ct->dichVu->DV_TEN ?? '' }}</div>
+                        @endforeach
+                    </td>
                     <td>{{ $item->loaiThuCung->LTC_TEN ?? '---' }}</td>
                     <td>{{ $item->hinhThuc->HT_TEN ?? '---' }}</td>
                     <td>
@@ -57,8 +62,8 @@
                             <span class="text-warning fw-bold">Chưa có</span>
                         @elseif ($item->TTLH_MA == 3)
                             <span class="text-danger fw-bold">Không</span>
-                        @elseif ($item->TTLH_MA == 2)
-                            <span class="text-success fw-bold">{{ $item->nhanVien->NV_HOTEN ?? '---' }}</span>
+                        @elseif ($item->TTLH_MA == 2 && $item->nhanVien)
+                            <span class="text-success fw-bold">{{ $item->nhanVien->NV_HOTEN }}</span>
                         @endif
                     </td>
                     <td>
@@ -67,22 +72,53 @@
                         </span>
                     </td>
                     <td>
-                        <form method="POST" action="{{ route('admin.updateBookingStatus', $item->LH_MA) }}" class="d-flex">
-                            @csrf
-                            @method('PUT')
-                            <select name="TTLH_MA" class="form-select form-select-sm me-2">
-                                @foreach($trangThais as $tt)
-                                    <option value="{{ $tt->TTLH_MA }}" {{ $item->TTLH_MA == $tt->TTLH_MA ? 'selected' : '' }}>
-                                        {{ $tt->TTLH_TEN }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <button type="submit" class="btn btn-sm btn-primary">Lưu</button>
+                        @if ($item->TTLH_MA == 1)
+                            <form method="POST" action="{{ route('admin.updateBookingStatus', $item->LH_MA) }}">
+                                @csrf
+                                @method('PUT')
+                                <div class="mb-2">
+                                    <select name="TTLH_MA" class="form-select form-select-sm">
+                                        @foreach($trangThais as $tt)
+                                            <option value="{{ $tt->TTLH_MA }}" {{ $item->TTLH_MA == $tt->TTLH_MA ? 'selected' : '' }}>
+                                                {{ $tt->TTLH_TEN }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <select name="NV_MA" class="form-select form-select-sm">
+                                        <option value="">-- Chọn nhân viên --</option>
+                                        @foreach($nhanViens as $nv)
+                                            <option value="{{ $nv->NV_MA }}" {{ $item->NV_MA == $nv->NV_MA ? 'selected' : '' }}>
+                                                {{ $nv->NV_HOTEN }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-primary">Lưu</button>
+                            </form>
+                            @else
+                                <span class="text-muted fst-italic">Không thể cập nhật</span>
+                            @endif
                         </form>
                     </td>
+                    <td>{{ $item->LH_DIACHI ?? '---' }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </div>
+<script>
+    document.querySelectorAll('.status-select').forEach(function(select) {
+        select.addEventListener('change', function() {
+            const id = this.dataset.id;
+            const staffSelect = document.getElementById('staff-select-' + id);
+            if (this.value == '2') {
+                staffSelect.style.display = 'block';
+            } else {
+                staffSelect.style.display = 'none';
+            }
+        });
+    });
+</script>
 @endsection

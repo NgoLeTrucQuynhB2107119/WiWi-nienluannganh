@@ -15,15 +15,16 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\Service\Service_BeautyController;
 use App\Http\Controllers\User\Service\Service_HealthController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\BookingController;
 
 
 
 // Login routes
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/register',[AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register',[AuthController::class, 'register']);
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/register',[AuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register',[AuthController::class, 'register']);
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +32,6 @@ Route::post('/register',[AuthController::class, 'register']);
     Route::get('/', [UserController::class, 'open_home'])->name('home');
     Route::get('/service', [UserController::class, 'open_service'])->name('service');
     Route::get('/contact', [UserController::class, 'open_contact'])->name('contact');
-    // Route::get('/information', [UserController::class, 'open_info'])->name('info');
 
     //Service_Beauty
     Route::get('/User_ServiceBeauty',[Service_BeautyController::class, 'index'])->name('user.servicebeauty.index');
@@ -41,8 +41,10 @@ Route::post('/register',[AuthController::class, 'register']);
 
     //Profile
     Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
-    Route::get('/profile/edit', [ProfileController::class, 'editProfile'])->name('editProfile');
-    Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
+
+    //Booking
+    Route::get('/booking',[BookingController::class, 'index'])->name('user.booking.index');
+    Route::post('/booking', [BookingController::class, 'store'])->name('user.booking.store');
 
 /////////////////////////////////////////////////////////////////////
 
@@ -56,6 +58,7 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_ServiceType/{id}/edit', [ServiceTypeController::class, 'edit'])->name('admin.servicetype.edit');
     Route::put('/Admin_ServiceType/{id}', [ServiceTypeController::class, 'update'])->name('admin.servicetype.update');
     Route::delete('/Admin_ServiceType/{id}', [ServiceTypeController::class, 'destroy'])->name('admin.servicetype.destroy');
+
     //Format
     Route::get('Admin_Format',[FormatController::class, 'index'])->name('admin.format.index');
     Route::get('Admin_Format/Create',[FormatController::class, 'create'])->name('admin.format.create');
@@ -63,6 +66,7 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_Format/{id}/edit',[FormatController::class,'edit'])->name('admin.format.edit');
     Route::put('Admin_Format/{id}',[FormatController::class,'update'])->name('admin.format.update');
     Route::delete('/Admin_Format/{id}',[FormatController::class, 'destroy'])->name('admin.format.destroy');
+
     //Service_Beauty
     Route::get('/Admin_ServiceA',[ServiceBeautyController::class, 'index'])->name('admin.serviceA.index');
     Route::get('/Admin_ServiceA/Create',[ServiceBeautyController::class, 'create'])->name('admin.serviceA.create');
@@ -70,6 +74,7 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_ServiceA/{id}/edit', [ServiceBeautyController::class, 'edit'])->name('admin.serviceA.edit');
     Route::put('/Admin_ServiceA/{id}', [ServiceBeautyController::class, 'update'])->name('admin.serviceA.update');
     Route::delete('/Admin_ServiceA/{id}', [ServiceBeautyController::class, 'destroy'])->name('admin.serviceA.destroy');
+
     //Service_Health
     Route::get('/Admin_ServiceB',[ServiceHealthController::class, 'index'])->name('admin.serviceB.index');
     Route::get('/Admin_ServiceB/Create',[ServiceHealthController::class, 'create'])->name('admin.serviceB.create');
@@ -77,8 +82,10 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_ServiceB/{id}/edit', [ServiceHealthController::class, 'edit'])->name('admin.serviceB.edit');
     Route::put('/Admin_ServiceB/{id}', [ServiceHealthController::class, 'update'])->name('admin.serviceB.update');
     Route::delete('/Admin_ServiceB/{id}', [ServiceHealthController::class, 'destroy'])->name('admin.serviceB.destroy');
+
     //Customer
     Route::get('/Admin_Customer',[CustomerController::class, 'index'])->name('admin.customer.index');
+
     //Pet
     Route::get('/Admin_Pet',[PetController::class, 'index'])->name('admin.pet.index');
     Route::get('Admin_Pet/Create',[PetController::class, 'create'])->name('admin.pet.create');

@@ -21,7 +21,11 @@ class DichVu extends Model
 
     public function lichHens()
     {
-        return $this->hasMany(LichHen::class, 'DV_MA', 'DV_MA');
+        return $this->belongsToMany(LichHen::class, 'chi_tiet_lich_hens', 'DV_MA', 'LH_MA')
+                ->withPivot('GIA');
     }
-
+    public function chiTietLichHen()
+    {
+        return $this->hasMany(ChiTietLichHen::class, 'LH_MA', 'LH_MA');
+    }
 }

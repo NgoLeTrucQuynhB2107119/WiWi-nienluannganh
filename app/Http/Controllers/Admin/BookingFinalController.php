@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\LichHen;
 use App\Models\LoaiDichVu;
 use App\Models\NhanVien;
+use App\Models\TrangThaiLichHen;
 class BookingFinalController extends Controller
 {
     //A-Home B-Clinic
@@ -37,14 +38,17 @@ class BookingFinalController extends Controller
             $hours[] = sprintf('%02d:00', $hour);
         }
 
-        $appointments = LichHen::with(['khachHang', 'dichVu', 'loaiThuCung'])
+        $appointments = LichHen::with(['khachHang', 'loaiThuCung','TrangThaiLichHen','chiTietLichHen'])
             ->whereBetween('LH_NGAYHEN', [$startDate->toDateString(), $endDate->toDateString()])
             ->where('HT_MA', $hinhThuc)
+            ->where('TTLH_MA', 2)
             ->when($request->nhanVien, function ($query) use ($request) {
                 return $query->where('NV_MA', $request->nhanVien);
             })
             ->when($request->loaiDichVu, function ($query) use ($request) {
-                return $query->where('LDV_MA', $request->loaiDichVu);
+                return $query->whereHas('dichVu', function ($q) use ($request) {
+                    $q->where('LDV_MA', $request->loaiDichVu);
+                });
             })
             ->get();
 

@@ -11,7 +11,7 @@ class LichHen extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'LH_NGAYHEN','LH_GIOHEN', 'TTLH_MA', 'KH_MA', 'NV_MA', 'DV_MA', 'HT_MA', 'LTC_MA'
+        'LH_NGAYHEN','LH_GIOHEN','LH_DIACHI','LH_TONGTIEN', 'TTLH_MA', 'KH_MA', 'NV_MA', 'HT_MA', 'LTC_MA'
     ];
 
     public function trangThaiLichHen()
@@ -31,7 +31,8 @@ class LichHen extends Model
 
     public function dichVu()
     {
-        return $this->belongsTo(DichVu::class, 'DV_MA', 'DV_MA');
+        return $this->belongsToMany(DichVu::class, 'chi_tiet_lich_hens', 'LH_MA', 'DV_MA')
+        ->withPivot('GIA');
     }
     public function hinhThuc()
     {
@@ -39,5 +40,9 @@ class LichHen extends Model
     }
     public function loaiThuCung(){
         return $this->belongsTo(LoaiThuCung::class,'LTC_MA','LTC_MA');
+    }
+    public function chiTietLichHen()
+    {
+        return $this->hasMany(ChiTietLichHen::class, 'LH_MA', 'LH_MA');
     }
 }

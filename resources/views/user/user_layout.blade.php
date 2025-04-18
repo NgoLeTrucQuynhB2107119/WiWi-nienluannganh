@@ -77,7 +77,6 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('home') }}" class="nav-item nav-link active">Trang chủ</a>
-                {{-- <a href="{{ route('info') }}" class="nav-item nav-link">Thông tin</a> --}}
                 <div class="nav-item dropdown">
                     <a href="{{ route('service') }}" class="nav-item nav-link">Dịch vụ</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -85,6 +84,8 @@
                         <a href="{{ route('user.servicebeauty.index') }}" class="dropdown-item">Chăm sóc thẩm mỹ</a>
                     </div>
                 </div>
+                <a href="{{ route('user.booking.index') }}" class="nav-item nav-link">Đặt lịch khám</a>
+
                 {{-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -106,6 +107,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">Thông tin cá nhân</a>
+                            <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#bookingHistoryModal">Lịch sử lịch hẹn</a>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button class="dropdown-item" type="submit">Đăng xuất</button>
@@ -121,7 +123,8 @@
     </nav>
     <!-- Navbar End -->
 <div class="container">
-    @include('user.modal.profile',['editMode' => false])
+    @include('user.modal.profile')
+    @include('user.modal.booking_final')
 </div>
 
     <!-- Header Start -->

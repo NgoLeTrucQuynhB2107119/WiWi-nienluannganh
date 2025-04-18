@@ -18,7 +18,7 @@
                         <p class="card-text"><strong>Thời gian:</strong> {{ $dv->DV_THOIGIAN_THUCHIEN }}</p>
                         <p class="card-text text-success"><strong>Giá:</strong> {{ number_format($dv->DV_GIA, 0, ',', '.') }} đ</p>
 
-                        <a href="#" class="btn btn-primary btn-booking">
+                        <a href="{{ route('user.booking.index') }}" class="btn btn-primary btn-booking">
                             Đặt lịch hẹn
                         </a>
                     </div>
