@@ -28,4 +28,8 @@ class DichVu extends Model
     {
         return $this->hasMany(ChiTietLichHen::class, 'LH_MA', 'LH_MA');
     }
+    public function danhGias()
+    {
+        return $this->hasMany(DanhGia::class, 'KH_MA', 'KH_MA');
+    }
 }

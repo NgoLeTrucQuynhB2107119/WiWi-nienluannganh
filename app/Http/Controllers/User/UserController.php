@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\DanhGia;
+use App\Models\DichVu;
+
 class UserController extends Controller
 {
     //Lỡ gòi thì lưu dô luon, ĐỪNG ĐỔI HAY XÓA NHE QUỲNH ƠIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     public function open_home(){
-        return view('user.index');
+        $danhgias = DanhGia::with('dichVu', 'khachHang')->latest()->get();
+        $dichvus = DichVu::all();
+        return view('user.index',compact('danhgias','dichvus'));
     }
     public function open_service(){
         return view('user.service');

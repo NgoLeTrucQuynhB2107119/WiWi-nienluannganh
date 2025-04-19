@@ -16,6 +16,7 @@ use App\Http\Controllers\User\Service\Service_BeautyController;
 use App\Http\Controllers\User\Service\Service_HealthController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\BookingController;
+use App\Http\Controllers\User\ReviewController;
 
 
 
@@ -45,6 +46,10 @@ use App\Http\Controllers\User\BookingController;
     //Booking
     Route::get('/booking',[BookingController::class, 'index'])->name('user.booking.index');
     Route::post('/booking', [BookingController::class, 'store'])->name('user.booking.store');
+
+    //Review
+    Route::get('/review',[ReviewController::class, 'index'])->name('user.review.index');
+    Route::post('/review/store',[ReviewController::class, 'store'])->name('user.review.store');
 
 /////////////////////////////////////////////////////////////////////
 
