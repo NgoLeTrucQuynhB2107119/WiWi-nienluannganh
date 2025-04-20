@@ -17,6 +17,7 @@ use App\Http\Controllers\User\Service\Service_HealthController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\User\ReviewController;
+use App\Http\Controllers\User\ShowBookingHistoryController;
 
 
 
@@ -46,10 +47,16 @@ use App\Http\Controllers\User\ReviewController;
     //Booking
     Route::get('/booking',[BookingController::class, 'index'])->name('user.booking.index');
     Route::post('/booking', [BookingController::class, 'store'])->name('user.booking.store');
+    Route::delete('/lich-hen/{id}/xoa', [ShowBookingHistoryController::class, 'destroy'])->name('user.booking.destroy');
 
     //Review
     Route::get('/review',[ReviewController::class, 'index'])->name('user.review.index');
     Route::post('/review/store',[ReviewController::class, 'store'])->name('user.review.store');
+
+    //Invoice
+    Route::get('/booking/pdf/{id}', [ShowBookingHistoryController::class, 'exportPDF'])
+    ->name('user.booking.pdf');
+
 
 /////////////////////////////////////////////////////////////////////
 
@@ -119,6 +126,8 @@ Route::get('/AdminHome',[UserController::class, 'open_adminhome'])->name('admin_
     Route::get('/Admin_BookingCheckB',[BookingCheckController::class, 'indexB'])->name('admin.bookingCheckB.index');
     Route::get('/Admin_BookingCheckA',[BookingCheckController::class, 'indexA'])->name('admin.bookingCheckA.index');
     Route::put('/admin/booking-check/{id}/update-status', [BookingCheckController::class, 'updateStatus'])->name('admin.updateBookingStatus');
+    Route::post('/admin/lich-hen/{id}/da-kham', [BookingCheckController::class, 'markAsCompleted'])->name('admin.booking.markCompleted');
+
 
     //BookingFinal
     Route::get('/Admin_BookingFinalB',[BookingFinalController::class, 'indexB'])->name('admin.bookingFinalB.index');

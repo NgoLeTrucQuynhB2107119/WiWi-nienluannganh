@@ -97,6 +97,13 @@
                                 </div>
                                 <button type="submit" class="btn btn-sm btn-primary">Lưu</button>
                             </form>
+                            @elseif ($item->TTLH_MA == 2)
+                            <form method="POST" action="{{ route('admin.booking.markCompleted', $item->LH_MA) }}">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-success mt-2">
+                                    Đã khám & Xuất HĐ
+                                </button>
+                            </form>
                             @else
                                 <span class="text-muted fst-italic">Không thể cập nhật</span>
                             @endif

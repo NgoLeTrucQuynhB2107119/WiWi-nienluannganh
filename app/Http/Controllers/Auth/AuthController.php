@@ -22,12 +22,18 @@ class AuthController extends Controller
             'KH_HOTEN' => 'required|string|max:255',
             'KH_EMAIL' => 'required|email|unique:khach_hangs,KH_EMAIL',
             'KH_MATKHAU' => 'required|min:6|confirmed',
+            'KH_SDT' => 'nullable|string|max:10',
+            'KH_DIACHI' => 'nullable|string|max:255',
+            'KH_GIOITINH' => 'nullable|string|in:Nam,Nữ,Khác'
         ]);
 
         $khachhang=KhachHang::create([
             'KH_HOTEN' => $request->KH_HOTEN,
             'KH_EMAIL' => $request->KH_EMAIL,
             'KH_MATKHAU' => Hash::make($request->KH_MATKHAU),
+            'KH_SDT' => $request->KH_SDT,
+            'KH_DIACHI' => $request->KH_DIACHI,
+            'KH_GIOITINH' => $request->KH_GIOITINH,
         ]);
 
         Auth::guard('web')->login($khachhang);

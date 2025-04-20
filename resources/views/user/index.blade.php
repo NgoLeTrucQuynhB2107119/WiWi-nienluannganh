@@ -4,6 +4,46 @@
 @endsection
 @section('user_content')
 @include('user.modal.review')
+<!-- Bài viết thú cưng -->
+<div class="container my-5">
+    <h4 class="text-center mb-4">Tin tức thú cưng nổi bật</h4>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Bài 1 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0"style="width: 400px;">
+                <img src="{{ asset('/userlayout/img/husky.jpg') }}" class="card-img-top" style="height: 300px;" alt="Chó con dễ thương">
+                <div class="card-body">
+                    <h5 class="card-title">5 Cách Giúp Cún Con Phát Triển Toàn Diện</h5>
+                    <p class="card-text">Từ chế độ ăn đến lịch khám định kỳ, đây là những điều bạn cần biết để cún yêu luôn khỏe mạnh và năng động.</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+        <!-- Bài 2 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0" style="width: 400px;">
+                <img src="{{ asset('/userlayout/img/meo.jpg') }}" class="card-img-top" style="height: 300px;" alt="Mèo xinh">
+                <div class="card-body">
+                    <h5 class="card-title">Giải mã hành vi thường gặp của mèo</h5>
+                    <p class="card-text">Tại sao mèo lại kêu vào đêm, hay gãi vào sofa? Tìm hiểu để hiểu "hoàng thượng" hơn nhé!</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+        <!-- Bài 3 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0" style="width: 400px;">
+                <img src="{{ asset('/userlayout/img/smile.jpg') }}" class="card-img-top" style="height: 300px;" alt="Chăm sóc thú cưng">
+                <div class="card-body">
+                    <h5 class="card-title">Lịch tiêm phòng đầy đủ cho thú cưng</h5>
+                    <p class="card-text">Đừng để cún/mèo nhà bạn bỏ lỡ các mũi vắc xin quan trọng. Lên lịch tiêm phòng đầy đủ giúp phòng bệnh hiệu quả.</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bình luận chạy ngang -->
 <div class="overflow-hidden bg-light py-3">
     <div class="d-flex flex-nowrap animate-scroll px-2">

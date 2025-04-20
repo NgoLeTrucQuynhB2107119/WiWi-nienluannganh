@@ -9,7 +9,7 @@
     </div>
 @endif
 <div class="container mt-4">
-    <h3 class="mb-3">Tạo lịch hẹn khám bệnh</h3>
+    <h2 class="mb-3">Tạo lịch hẹn khám bệnh</h2>
 
     <form action="{{ route('user.booking.store') }}" method="POST">
         @csrf
@@ -116,4 +116,9 @@
             document.getElementById('total_amount').value = total ? total.toLocaleString() + 'đ' : '0đ';
         }
     </script>
+    <style>
+        .container.mt-4 label {
+            color: #136DBD;
+        }
+    </style>
 @endsection

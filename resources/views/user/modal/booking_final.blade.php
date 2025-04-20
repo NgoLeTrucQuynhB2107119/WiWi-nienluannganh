@@ -39,8 +39,22 @@
                                         <td>
                                             @if($appointment->TTLH_MA == 1)
                                                 Chờ Duyệt
+                                                <br>
+                                                <a href="{{ route('user.booking.pdf', $appointment->LH_MA) }}" class="btn btn-sm btn-primary mt-1" target="_blank">
+                                                    Xem PDF
+                                                </a>
+                                                <br>
+                                                <form action="{{ route('user.booking.destroy', $appointment->LH_MA) }}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xóa lịch hẹn này?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Xóa</button>
+                                                </form>
                                             @elseif($appointment->TTLH_MA == 2)
                                                 Đã Duyệt
+                                                <br>
+                                                <a href="{{ route('user.booking.pdf', $appointment->LH_MA) }}" class="btn btn-sm btn-primary mt-1" target="_blank">
+                                                    Xem PDF
+                                                </a>
                                             @else
                                                 Không Duyệt
                                             @endif
@@ -59,13 +73,19 @@
     </div>
 @endif
 <style>
+    .modal-body>table>thead>tr>th,
+    .modal-body>table>tbody>tr>td
+    {
+        color: #000000
+    }
     .bg-warning {
-    background-color: #ffcc00 !important;
+    background-color: #eadb9d !important;
     }
     .bg-success {
-        background-color: #28a745 !important;
+        background-color: #9acaec !important;
     }
     .bg-danger {
-        background-color: #dc3545 !important;
+        background-color: #fa7582 !important;
     }
+
 </style>

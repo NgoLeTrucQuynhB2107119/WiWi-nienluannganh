@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\LichHen;
 use App\Models\TrangThaiLichHen;
 use App\Models\NhanVien;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Response;
 class BookingCheckController extends Controller
 {
     //A-Home B-Clinic
@@ -72,5 +74,23 @@ class BookingCheckController extends Controller
 
         return back()->with('success', 'Cập nhật trạng thái thành công!');
     }
+    public function markAsCompleted($id)
+    {
+        $lichHen = LichHen::with([
+            'khachHang',
+            'chiTietLichHen.dichVu',
+            'loaiThuCung',
+            'nhanVien',
+            'hinhThuc'
+        ])->findOrFail($id);
 
+        // Cập nhật trạng thái thành "Đã khám"
+        $lichHen->TTLH_MA = 4;
+        $lichHen->save();
+
+        // Xuất hóa đơn PDF
+        $pdf = PDF::loadView('admin.invoice', compact('lichHen'));
+
+        return $pdf->download("hoa-don-lich-hen-{$lichHen->LH_MA}.pdf");
+    }
 }

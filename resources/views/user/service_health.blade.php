@@ -15,7 +15,6 @@
                             Loại: {{ $dv->LoaiDichVu->LDV_TEN }}
                         </h6>
                         <p class="card-text">{{ $dv->DV_MOTA }}</p>
-                        <p class="card-text"><strong>Thời gian:</strong> {{ $dv->DV_THOIGIAN_THUCHIEN }}</p>
                         <p class="card-text text-success"><strong>Giá:</strong> {{ number_format($dv->DV_GIA, 0, ',', '.') }} đ</p>
 
                         <a href="{{ route('user.booking.index') }}" class="btn btn-primary btn-booking">

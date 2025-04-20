@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('userlayout/img/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('userlayout/img/logo-icon-removebg-preview.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,7 +78,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('home') }}" class="nav-item nav-link active">Trang chủ</a>
                 <div class="nav-item dropdown">
-                    <a href="{{ route('service') }}" class="nav-item nav-link">Dịch vụ</a>
+                    <a href="#" class="nav-item nav-link">Dịch vụ</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="{{ route('user.servicehealth.index') }}" class="dropdown-item">Chăm sóc sức khỏe</a>
                         <a href="{{ route('user.servicebeauty.index') }}" class="dropdown-item">Chăm sóc thẩm mỹ</a>
@@ -96,7 +96,8 @@
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
                 </div> --}}
-                <a href="{{ route('contact') }}" class="nav-item nav-link">Liên Hệ</a>
+                {{-- <a href="{{ route('contact') }}" class="nav-item nav-link">Liên Hệ</a> --}}
+
                 {{-- Menu thông tin của người dùng đây nè Quìn --}}
                 @auth('web')
                     <!-- Đã đăng nhập -->
@@ -193,12 +194,12 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Dịch vụ</h5>
-                    <a class="btn btn-link" href="">Sức khỏe</a>
-                    <a class="btn btn-link" href="">Thẩm mỹ</a>
+                    <a class="btn btn-link" href="{{ route('user.servicehealth.index') }}">Sức khỏe</a>
+                    <a class="btn btn-link" href="{{ route('user.servicebeauty.index') }}">Thẩm mỹ</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Truy cập nhanh</h5>
-                    <a class="btn btn-link" href="">liên hệ</a>
+                    {{-- <a class="btn btn-link" href="">liên hệ</a> --}}
                     <a class="btn btn-link" href="">Dịch vụ</a>
                     <a class="btn btn-link" href="">Đặt khám</a>
                     <a class="btn btn-link" href="">Thông báo</a>

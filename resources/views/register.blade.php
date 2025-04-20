@@ -28,7 +28,7 @@
 
         .register-container h2 {
             margin-bottom: 30px;
-            color: #3f7a5c;
+            color: #1B2C51;
         }
 
         .form-group {
@@ -40,14 +40,14 @@
 
         .form-group label {
             margin-bottom: 5px;
-            color: #3f7a5c;
+            color: #1B2C51;
             font-weight: 500;
         }
 
         .form-group input {
             width: 100%;
             padding: 12px;
-            border: 1px solid #eeaeca;
+            border: 1px solid #1B2C51;
             border-radius: 10px;
             box-sizing: border-box;
             font-size: 16px;
@@ -56,14 +56,14 @@
         }
 
         .form-group input:focus {
-            border-color: #3f7a5c;
+            border-color: #7ca1f0;
         }
 
         .register-btn,
         .return-btn {
             width: 100%;
             padding: 15px;
-            background-color: #69ae8b;
+            background-color: #136DBD;
             color: #fff;
             border: none;
             border-radius: 10px;
@@ -75,7 +75,7 @@
 
         .register-btn:hover,
         .return-btn:hover {
-            background-color: #3f7a5c;
+            background-color: #7ca1f0;
         }
 
         .error-message {
@@ -86,7 +86,7 @@
         .login-link {
             display: block;
             margin-top: 15px;
-            color: #00796b;
+            color: #7ca1f0;
             text-decoration: none;
             font-weight: 500;
         }
@@ -112,6 +112,35 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="KH_EMAIL" placeholder="Nhập email" required value="{{ old('email') }}">
                 @error('KH_EMAIL')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="KH_SDT">Số điện thoại:</label>
+                <input type="text" id="KH_SDT" name="KH_SDT" placeholder="Nhập số điện thoại">
+                @error('KH_SDT')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="KH_DIACHI">Địa chỉ:</label>
+                <input type="text" id="KH_DIACHI" name="KH_DIACHI" placeholder="Nhập địa chỉ">
+                @error('KH_DIACHI')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="KH_GIOITINH">Giới tính:</label>
+                <select id="KH_GIOITINH" name="KH_GIOITINH">
+                    <option value="">-- Chọn giới tính --</option>
+                    <option value="Nam" {{ old('KH_GIOITINH') == 'Nam' ? 'selected' : '' }}>Nam</option>
+                    <option value="Nữ" {{ old('KH_GIOITINH') == 'Nữ' ? 'selected' : '' }}>Nữ</option>
+                    <option value="Khác" {{ old('KH_GIOITINH') == 'Khác' ? 'selected' : '' }}>Khác</option>
+                </select>
+                @error('KH_GIOITINH')
                 <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>

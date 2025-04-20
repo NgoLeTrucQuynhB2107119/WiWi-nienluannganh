@@ -14,9 +14,9 @@ class UserController extends Controller
         $dichvus = DichVu::all();
         return view('user.index',compact('danhgias','dichvus'));
     }
-    public function open_service(){
-        return view('user.service');
-    }
+    // public function open_service(){
+    //     return view('user.service');
+    // }
     public function open_contact(){
         return view('user.contact');
     }

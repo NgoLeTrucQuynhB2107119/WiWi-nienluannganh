@@ -71,7 +71,7 @@
         .return-btn {
             width: 100%;
             padding: 15px;
-            background-color: #0463FA;
+            background-color: #136DBD;
             color: #fff;
             border: none;
             border-radius: 10px;
@@ -94,7 +94,7 @@
         .register-link {
             margin-top: 20px;
             display: block;
-            color: #00796b;
+            color: #7ca1f0;
             text-decoration: none;
             font-weight: 500;
         }
